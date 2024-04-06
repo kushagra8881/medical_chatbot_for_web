@@ -5,6 +5,6 @@
     { "handle": "filesystem" },
     { "src": "/process", "dest": "/process" },
     { "src": "/(.*)", "dest": "/" }
-    }
+    
   ]
 }
