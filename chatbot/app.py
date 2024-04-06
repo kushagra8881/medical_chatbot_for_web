@@ -22,7 +22,10 @@ RESPONSE FORMAT: I will deliver the information in a clear, well-structured, and
 app = Flask(__name__)
 llm = OpenAI(temperature=0.6, openai_api_key=os.environ["openai_api_key"])
 
-@app.route("/", methods=["POST"])
+@app.route("/")
+def pop():
+    return "<h1> Hello, World! </h1>"
+@app.route("/query", methods=["POST"])   
 def process_query():
     data = request.json
     query = data.get("query", "")
