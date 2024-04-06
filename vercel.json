@@ -1,16 +1,10 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "app.py",
-      "use": "@vercel/python",
-      "config": { "runtime": "python3.9" }
-    }
-  ],
+ 
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "app.py"
+    { "handle": "filesystem" },
+    { "src": "/process", "dest": "/process" },
+    { "src": "/(.*)", "dest": "/" }
     }
   ]
 }
