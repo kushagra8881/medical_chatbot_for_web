@@ -4,7 +4,7 @@
     {
       "src": "app.py",
       "use": "@vercel/python",
-      "config": { "runtime": "python3.9" } // Specify the Python version you want to use
+      "config": { "runtime": "python3.11" }
     }
   ],
   "routes": [
@@ -14,4 +14,3 @@
     }
   ]
 }
-
