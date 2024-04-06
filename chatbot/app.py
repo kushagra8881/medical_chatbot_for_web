@@ -1,7 +1,7 @@
 from langchain_openai import OpenAI
 from flask import Flask, request, jsonify
 import os
-import uvicorn
+
 
 os.environ["openai_api_key"] = "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"
 
@@ -14,7 +14,7 @@ IMPORTANT: If you have any concerns about your skin health, please consult a qua
 
 DISCLAIMER: I cannot provide medical advice, make claims of cures, or recommend specific treatments.
 
-EXAMPLE: {},
+EXAMPLE: {}
 
 RESPONSE FORMAT: I will deliver the information in a clear, well-structured, and easy-to-understand manner, using a neutral and objective tone. I will focus on factual accuracy and avoid making claims that could be misconstrued as medical advice.
 """
@@ -23,9 +23,10 @@ app = Flask(__name__)
 llm = OpenAI(temperature=0.6, openai_api_key=os.environ["openai_api_key"])
 
 @app.route("/")
-def pop():
-    return "<h1> Hello, World! </h1>"
-@app.route("/query", methods=["POST"])   
+def index():
+    return "<h1>Hello, World!</h1>"
+
+@app.route("/query", methods=["POST"])
 def process_query():
     data = request.json
     query = data.get("query", "")
@@ -34,4 +35,4 @@ def process_query():
     return jsonify({"response": response})
 
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+    app.run(debug=True,port=8000)
